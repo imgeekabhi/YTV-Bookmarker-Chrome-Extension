@@ -1,0 +1,19 @@
+{
+  "name": "Youtube bookmarker",
+  "description": "This extension allows you to bookmark youtube videos",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["tabs", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "YT Bookmarker"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
