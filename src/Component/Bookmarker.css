@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3px;
+  padding: 4px;
+  border: solid #ff7614;
+  background-color: #fff;
+}
+header h2 {
+  font-size: 24px;
+  color: #ff7614;
+}
+hr {
+  margin-top: 3px;
+}
+.plus_icon {
+  margin-top: 4px;
+  color: #ff7614;
+}
+.plus_icon:hover {
+  cursor: pointer;
+  color: rgb(47, 214, 122);
+}
+.fa-trash-alt {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 10;
+  color: rgb(251, 251, 251);
+  -webkit-transition: color 0.15s linear;
+  transition: color 0.15s linear;
+  font-size: 2rem;
+}
+.eachItem:hover .fa-trash-alt {
+  color: rgb(214, 47, 61);
+}
+.parent-div {
+  position: relative;
+}
+.main-div {
+  min-height: 100vh;
+  background: #4b0082;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  min-width: 34rem;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 52px;
+}
+
+.child-div {
+  text-align: center;
+  padding-right: 9px;
+  margin-top: 2rem;
+}
+
+.trash-btn {
+  width: 5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.showItems {
+  margin-top: -4.5rem;
+  text-align: center;
+}
+
+.eachItem {
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-left: -1rem;
+  width: 32rem;
+  background-color: #ff7614;
+  word-break: break-word;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.eachItem:hover {
+  background: rgb(249, 249, 252);
+  color: rgb(85, 41, 220);
+}
+.showItems .eachItem h2 {
+  padding-left: 1rem;
+  font-size: 1.6rem;
+  color: black;
+}
