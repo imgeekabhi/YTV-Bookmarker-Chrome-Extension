@@ -67,18 +67,15 @@ const Bookmarker = () => {
                 },
                 function (tabs) {
                   let url = tabs[0].url;
-
                   let id = getYouTubeID(url);
-                  console.log(url);
-                  console.log(typeof url);
                   fetchYoutubeTitle(id).then((data) => {
-                    const title = data.items[0].snippet.title;
-                    if (false) {
+                    if (url === 'https://www.youtube.com/') {
+                      console.log('Youtube Home Page');
                       addItem(url, "Youtube's Home Page");
                     } else {
+                      const title = data.items[0].snippet.title;
                       addItem(url, title);
                     }
-                    console.log(data.items[0].snippet.title);
                   });
                 }
               );
