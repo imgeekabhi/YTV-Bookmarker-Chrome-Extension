@@ -13,3 +13,11 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
   }
 });
+// export const getVideoTitle = () => {
+//   chrome.tabs.onActivated.addListener(function (activeInfo) {
+//     chrome.tabs.get(activeInfo.tabId, function (tab) {
+//       console.log('Title: ' + tab.title);
+//     });
+//   });
+// };
+// getVideoTitle();

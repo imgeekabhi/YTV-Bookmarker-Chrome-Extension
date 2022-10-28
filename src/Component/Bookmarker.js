@@ -1,9 +1,12 @@
 /*global chrome*/
 import React, { useState, useEffect } from 'react';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
+
 import { ImBin } from 'react-icons/im';
 
 import './Bookmarker.css';
+var getYouTubeID = require('get-youtube-id');
+var getYoutubeTitle = require('get-youtube-title');
 
 //get data from local storage
 const getLocalItems = () => {
@@ -15,15 +18,23 @@ const getLocalItems = () => {
     return [];
   }
 };
-
+const fetchYoutubeTitle = async (id) => {
+  const res = await fetch(
+    `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyBazFarwuclT11lJyIxNvqhhtjEDxxXy9o`
+  );
+  const data = await res.json();
+  return data;
+};
 const Bookmarker = () => {
   const [items, setItems] = useState(getLocalItems());
 
-  const addItem = (msg) => {
+  const addItem = (url, youtubeTitle) => {
     const allInputData = {
       id: new Date().getTime().toString(),
-      name: msg,
+      url: url,
+      title: youtubeTitle,
     };
+    console.log(allInputData);
     setItems([...items, allInputData]);
   };
 
@@ -40,7 +51,7 @@ const Bookmarker = () => {
   useEffect(() => {
     localStorage.setItem('lists', JSON.stringify(items));
   }, [items]);
-
+  // console.log(youtubeId);
   return (
     <>
       <header>
@@ -56,7 +67,19 @@ const Bookmarker = () => {
                 },
                 function (tabs) {
                   let url = tabs[0].url;
-                  addItem(url);
+
+                  let id = getYouTubeID(url);
+                  console.log(url);
+                  console.log(typeof url);
+                  fetchYoutubeTitle(id).then((data) => {
+                    const title = data.items[0].snippet.title;
+                    if (false) {
+                      addItem(url, "Youtube's Home Page");
+                    } else {
+                      addItem(url, title);
+                    }
+                    console.log(data.items[0].snippet.title);
+                  });
                 }
               );
             }}
@@ -77,11 +100,11 @@ const Bookmarker = () => {
                       <div className="eachItem" key={elem.id}>
                         <h2>
                           <a
-                            href={elem.name}
+                            href={elem.url}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {elem.name}
+                            {elem.title}
                           </a>
                         </h2>
                         <div className="trash-btn">
