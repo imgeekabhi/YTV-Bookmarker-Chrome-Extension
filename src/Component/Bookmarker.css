@@ -71,7 +71,7 @@ hr {
 .trash-btn {
   width: 5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 
 .showItems {
