@@ -28,7 +28,22 @@ const fetchYoutubeTitle = async (id) => {
 const Bookmarker = () => {
   const [items, setItems] = useState(getLocalItems());
 
+  //to compare the url with the local storage url
+  const checkUrl = (url) => {
+    let flag = false;
+    items.map((item) => {
+      if (item.url === url) {
+        flag = true;
+      }
+    });
+    return flag;
+  };
+
   const addItem = (url, youtubeTitle) => {
+    if (checkUrl(url)) {
+      alert('This Link is already exists');
+      return;
+    }
     const allInputData = {
       id: new Date().getTime().toString(),
       url: url,
