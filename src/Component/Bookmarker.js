@@ -6,7 +6,6 @@ import { ImBin } from 'react-icons/im';
 
 import './Bookmarker.css';
 var getYouTubeID = require('get-youtube-id');
-var getYoutubeTitle = require('get-youtube-title');
 
 //get data from local storage
 const getLocalItems = () => {

@@ -50,7 +50,7 @@ hr {
   position: relative;
 }
 .main-div {
-  min-height: 100vh;
+  min-height: 91vh;
   background: #4b0082;
   display: flex;
   justify-content: center;
