@@ -19,7 +19,7 @@ const getLocalItems = () => {
 };
 const fetchYoutubeTitle = async (id) => {
   const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyBazFarwuclT11lJyIxNvqhhtjEDxxXy9o`
+    `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=AIzaSyAsFhw4QJEMUrXxmSTNNYPB04uhGoVZdw4`
   );
   const data = await res.json();
   return data;
@@ -73,6 +73,7 @@ const Bookmarker = () => {
         <div className="plus_icon">
           <AiOutlinePlusCircle
             size={25}
+            title="Add video"
             onClick={() => {
               chrome.tabs.query(
                 {
